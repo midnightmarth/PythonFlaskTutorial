@@ -14,7 +14,7 @@ def about():
 def credits():
     return render_template("credits.html")
 
-@app.route('/vars/<num>')
+@app.route('/vars/<num>') 
 def vars(num):
     output = f"You chose number {int(num)} which is 1 more than {int(num) - 1}"
     output += "<br> <a href='/'>Home</a>"
