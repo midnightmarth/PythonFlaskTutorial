@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Hello World!</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/static/style.css'>
+    <script>
+        function next(){
+            var num = document.getElementById('input').value;
+            window.location = `/vars/${num}`;
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <h1>Hello World from an HTML file!</h1>
+        <div>
+            <a href="/about">About page</a>
+            <a href="/credits">Credits page</a>
+
+            <input id="input"/>
+
+            <button onclick="next()">Submit Number</button>
+        </div>
+    </div>
+</body>
+</html>
