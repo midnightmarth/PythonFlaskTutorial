@@ -3,26 +3,43 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>My Portfolio!</title>
+    <title>Cookies!</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='/static/style.css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js"></script>
     <script src="/static/index.js"></script>
-
+    <script>
+        $(document).ready(function () {
+            if(Cookies.get('user') == null){
+                $("#cookieShow").text("No Cookie Found :(");
+            } else {
+                $("#cookieShow").text(Cookies.get('user'));
+            }
+            
+            $("#addCookie").click(() => {
+                var cookie = Cookies.get('user');
+                console.log("user cookie is: " + cookie);
+                Cookies.set('user', $("#userID").val());
+                $("#cookieShow").text(Cookies.get('user'));
+            });
+        });
+    </script>
 </head>
 <body>
     <div id="top">
         <h1>Hello world!</h1>
+        <a href="/">Home</a>
         <a href="/login">Login</a>
         <a href="/factorial">Factorial Calculator</a>
         <a href="/minecraftdictionary">Minecraft Dictionary</a>
-        <a href="/cookies">Cookies</a>
         <a href="/about">About</a>
         <a href="/credits">Credits</a>
     </div>
-    <div style="text-align: center;">
-    <h3>Hello! This is the index page of my website!</h3>
+    <div>
+        <h3 id="cookieShow"></h3>
+        <input type="text" id="userID" placeholder="Enter User ID"/>
+        <input type="button" id="addCookie" value="Add a Cookie!" />
     </div>
 </body>
 </html>

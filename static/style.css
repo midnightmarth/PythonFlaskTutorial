@@ -1,9 +1,51 @@
-
-
-
-
-
-body{
+#top {
+    background-color: blanchedalmond;
+    border: 2px solid black;
+    box-shadow: 0px 5px 5px black inset;
     text-align: center;
+    margin: 10px;
+}
+
+body {
+    text-align: center;
+    background-color: navajowhite !important;
+}
+
+* {
+    font-family:
+        'Arial';
+}
+
+.wrapper {
+    width: 20%;
+    padding: 10px;
+    border-radius: 5px;
+    background: #f8ca85;
+    margin: auto;
+}
+
+form {
+    margin: 25px auto;
+}
+
+.btn {
+    width: auto;
+    border: none;
+    margin-top: 5px;
+    color: white;
+    background-color: #3b5998;
+    border-radius: 5px;
+    padding: 12px;
+}
+
+.form-control {
+    width: 50%;
+}
+
+.error {
     color: red;
+}
+
+.valid {
+    color: green;
 }

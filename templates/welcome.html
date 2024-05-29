@@ -3,26 +3,29 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>My Portfolio!</title>
+    <title>Login</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='/static/style.css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js"></script>
     <script src="/static/index.js"></script>
-
 </head>
 <body>
     <div id="top">
-        <h1>Hello world!</h1>
-        <a href="/login">Login</a>
+        <h1>Welcome!</h1>
+        <a href="/">Home</a>
         <a href="/factorial">Factorial Calculator</a>
         <a href="/minecraftdictionary">Minecraft Dictionary</a>
-        <a href="/cookies">Cookies</a>
         <a href="/about">About</a>
         <a href="/credits">Credits</a>
     </div>
     <div style="text-align: center;">
-    <h3>Hello! This is the index page of my website!</h3>
+        {% if message %}
+            <p class="valid"> {{message}} </p>
+        {% endif %}
+
+        Youre logged in as {{username}}
+        To Log out click <a href="/logout">this</a> link
     </div>
 </body>
 </html>
