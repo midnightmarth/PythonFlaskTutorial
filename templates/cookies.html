@@ -16,6 +16,11 @@
             } else {
                 $("#cookieShow").text(Cookies.get('user'));
             }
+            if(Cookies.get('userID') == null){
+                $("#cookieShowPython").text("No Cookie Found from Web Server :(");
+            } else {
+                $("#cookieShowPython").text(Cookies.get('userID'));
+            }
             
             $("#addCookie").click(() => {
                 var cookie = Cookies.get('user');
@@ -23,23 +28,41 @@
                 Cookies.set('user', $("#userID").val());
                 $("#cookieShow").text(Cookies.get('user'));
             });
+            $("#delCookie").click(() => {
+                var cookie = Cookies.get('user');
+                console.log("user cookie is: " + cookie);
+                Cookies.remove("user")
+                $("#cookieShow").text("");
+            });
+
+
         });
     </script>
 </head>
 <body>
     <div id="top">
         <h1>Hello world!</h1>
-        <a href="/">Home</a>
-        <a href="/login">Login</a>
-        <a href="/factorial">Factorial Calculator</a>
-        <a href="/minecraftdictionary">Minecraft Dictionary</a>
-        <a href="/about">About</a>
-        <a href="/credits">Credits</a>
+        {%for key, value in links.items()%}
+            <a href="{{value}}">{{key}}</a>
+        {%endfor%}
     </div>
-    <div>
+
+    <div id="javascriptCookieThings">
         <h3 id="cookieShow"></h3>
         <input type="text" id="userID" placeholder="Enter User ID"/>
         <input type="button" id="addCookie" value="Add a Cookie!" />
+        <input type="button" id="delCookie" value="Remove Cookie!" />
     </div>
+
+    <div id="pythonCookieThings">
+        <form method="post">
+            <h3 id="cookieShowPython"></h3>
+            <input type="text" name="cookieVal" id="userID" placeholder="Enter User ID"/>
+            <input type="submit" id="addCookie" value="Add a Cookie!" />
+        </form>
+        <a href="/delcookie">Delete Cookie</a>
+        
+    </div>
+
 </body>
 </html>

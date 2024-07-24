@@ -17,9 +17,26 @@
         {%for key, value in links.items()%}
             <a href="{{value}}">{{key}}</a>
         {%endfor%}
+        
     </div>
-    <div style="text-align: center;">
-        <h3>Hello! This is the index page of my website!</h3>
+    <div>
+        <h3>These are all the people I know</h3>
+        <form method="post">
+            <input name="firstName" placeholder="First Name"/>
+            <input name="lastName" placeholder="Last Name"/>
+            <input type="number" name="age" placeholder="Age"/>
+            <input type="submit" value="Submit" />
+        </form>
+        <div id="peopleList">
+            {%for value in people%}
+            <ul>
+                {%for attribute in value%}
+                <li>{{attribute}}</li>
+                {%endfor%}
+                <!-- <input id="removeButton" type="button" onclick="removeEntry()" data-id="{{value[0]}}" value="Remove"/> -->
+            </ul>
+            {%endfor%}
+        </div>
     </div>
 </body>
 </html>

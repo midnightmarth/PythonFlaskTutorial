@@ -11,9 +11,9 @@
 <body>
     <div id="top">
         <h1>Minecraft Dictionary</h1>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/credits">Credits</a>
+        {%for key, value in links.items()%}
+            <a href="{{value}}">{{key}}</a>
+        {%endfor%}
     </div>
     <div>
         <select>

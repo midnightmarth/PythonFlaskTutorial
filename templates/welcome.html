@@ -13,19 +13,17 @@
 <body>
     <div id="top">
         <h1>Welcome!</h1>
-        <a href="/">Home</a>
-        <a href="/factorial">Factorial Calculator</a>
-        <a href="/minecraftdictionary">Minecraft Dictionary</a>
-        <a href="/about">About</a>
-        <a href="/credits">Credits</a>
+        <!-- {%for key, value in links.items()%}
+            <a href="{{value}}">{{key}}</a>
+        {%endfor%} -->
     </div>
     <div style="text-align: center;">
         {% if message %}
             <p class="valid"> {{message}} </p>
         {% endif %}
 
-        Youre logged in as {{username}}
-        To Log out click <a href="/logout">this</a> link
+        <!-- Youre logged in as {{username}} -->
+        <!-- To Log out click <a href="/logout">this</a> link -->
     </div>
 </body>
 </html>

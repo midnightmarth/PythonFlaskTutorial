@@ -7,14 +7,31 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='/static/style.css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="/static/index.js"></script>
+
+    <script>
+        
+        function average(){
+            axios.get(`/avg`, {
+                params: {
+                x: $("#num1").val(),
+                y: $("#num2").val()
+            }})
+            .then((data) => {
+                $("#result2").html(data);
+            }).catch(error => {
+                $("#result2").html(error);
+            })
+        }
+    </script>
 </head>
 <body>
     <div id="top">
         <h1>Factorial</h1>
-        <a href="/minecraftdictionary">Minecraft Dictionary</a>
-        <a href="/about">About</a>
-        <a href="/credits">Credits</a>
+        {%for key, value in links.items()%}
+            <a href="{{value}}">{{key}}</a>
+        {%endfor%}
     </div>
     <div>
         <input type="number" id="num"/>
