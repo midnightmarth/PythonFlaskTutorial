@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -10,12 +11,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="/static/index.js"></script>
 </head>
+
 <body>
     <div id="top">
         <h1>Login</h1>
-        <!-- {%for key, value in links.items()%}
+        {%for key, value in links.items()%}
             <a href="{{value}}">{{key}}</a>
-        {%endfor%} -->
+        {%endfor%}
     </div>
     <div class="wrapper">
         {% if message %}
@@ -23,11 +25,13 @@
         {% endif %}
 
         <form id="form" method="post">
-            <input type="text" name="username" placeholder="Username" id="username" class="form-control" onchange="validation()" required/>
+            <input type="text" name="username" placeholder="Username" id="username" class="form-control"
+                onchange="validation()" required />
             <span id="error_username"> </span>
-            <input type="password" name="password" placeholder="Password" id="password" class="form-control" required/>
-            <input type="submit" value="Submit" class="btn" id="submitButton"/>
+            <input type="password" name="password" placeholder="Password" id="password" class="form-control" required />
+            <input type="submit" value="Submit" class="btn" id="submitButton" />
         </form>
     </div>
 </body>
+
 </html>

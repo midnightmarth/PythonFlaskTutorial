@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -11,32 +12,36 @@
     <script src="/static/index.js"></script>
 
 </head>
+
 <body>
     <div id="top">
         <h1>Hello world!</h1>
         {%for key, value in links.items()%}
-            <a href="{{value}}">{{key}}</a>
+        <a href="{{value}}">{{key}}</a>
         {%endfor%}
-        
+
     </div>
     <div>
         <h3>These are all the people I know</h3>
         <form method="post">
-            <input name="firstName" placeholder="First Name"/>
-            <input name="lastName" placeholder="Last Name"/>
-            <input type="number" name="age" placeholder="Age"/>
+            <input name="firstName" placeholder="First Name" />
+            <input name="lastName" placeholder="Last Name" />
+            <input type="number" name="age" placeholder="Age" />
             <input type="submit" value="Submit" />
         </form>
         <div id="peopleList">
-            {%for value in people%}
             <ul>
-                {%for attribute in value%}
-                <li>{{attribute}}</li>
-                {%endfor%}
+            {%for value in people%}
+                <li>
+                    {%for attribute in value%}
+                    {{attribute}}
+                    {%endfor%}
+                </li>
                 <!-- <input id="removeButton" type="button" onclick="removeEntry()" data-id="{{value[0]}}" value="Remove"/> -->
+                {%endfor%}
             </ul>
-            {%endfor%}
         </div>
     </div>
 </body>
+
 </html>

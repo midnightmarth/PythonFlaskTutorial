@@ -30,16 +30,13 @@ links = {
     "Login": "/login",
     "About": "/about",
     "Credits": "/credits",
-    "People" : "/people",
+    "People" : "/people",   
     "Friends": "/friends"
 }
 
 @app.route('/')
 def index():
-    myResponse = make_response(render_template("index.html", links=links))
-    # myResponse.set_cookie("foo", "bar", max_age=60*60)
-    myResponse.delete_cookie("foo")
-    return myResponse
+    return render_template("index.html", links=links)
 
 @app.route('/cookies', methods = ["get", "post"])
 def readCookie():
@@ -68,13 +65,11 @@ def credits():
 
 @app.route('/vars/<num>') 
 def vars(num):
-    output = f"You chose number {int(num)} which is 1 more than {int(num) - 1}"
-    output += "<br> <a href='/'>Home</a>"
-    return output
+    return f"<div id='someIdThatDoesntWork'>You chose number {int(num)} which is 1 more than {int(num) - 1} <br> <a href='/'>Home</a></div>"
 
 @app.route('/minecraftdictionary') 
 def minecraftDict():
-    return render_template("minecraftDictionary.html", dictionary = dictionary, links=links)
+    return render_template("minecraftDictionary.html", dictionary=dictionary, links=links)
 
 @app.route('/factorial') 
 def factorial():
@@ -107,8 +102,6 @@ def login():
         if username == "AtEchoOff" and password == "asdf":
             session["username"] = username
             response = make_response(render_template('welcome.html', links=links))
-            # response.set_cookie("new Cookie", username, max_age=60*60*24*7*52)
-            response.delete_cookie("new Cookie")
             return response
         else:
             message = "Incorrect username or password"
@@ -134,8 +127,7 @@ def welcome():
 @app.route('/people', methods=["get", "post"])
 def people():
     if request.method == "GET":
-        list = []
-        mycursor.execute("SELECT * FROM customers")
+        mycursor.execute("SELECT first_name, last_name, birth_date FROM customers")
         list = mycursor.fetchall()
         return render_template("people.html", people=list, links=links)
     elif request.method == "POST":
@@ -162,7 +154,7 @@ def friends():
 def api_all():
     return jsonify(friendsList)
 
-@app.route('/api/friend', methods=['GET', 'POST'])
+@app.route('/api/friends', methods=['GET', 'POST'])
 def api_one():
     if request.method == 'POST':
         newFriend = request.get_json()

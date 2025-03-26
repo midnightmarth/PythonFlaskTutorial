@@ -41,6 +41,8 @@
                     }
                     $("#friendsList").html(elements);
                 })
+            }).catch((err, data) => {
+                console.log(`An error has occurred: ${err} ${data}`)
             })
         }
     </script>

@@ -5,14 +5,17 @@
     text-align: center;
     margin: 10px;
 }
+
 body {
     text-align: center;
     background-color: navajowhite !important;
 }
+
 * {
     font-family:
         'Arial';
 }
+
 .wrapper {
     width: 20%;
     padding: 10px;
@@ -20,9 +23,11 @@ body {
     background: #f8ca85;
     margin: auto;
 }
+
 form {
     margin: 25px auto;
 }
+
 .btn {
     width: auto;
     border: none;
@@ -32,16 +37,20 @@ form {
     border-radius: 5px;
     padding: 12px;
 }
+
 .form-control {
     width: 50%;
 }
+
 .error {
     color: red;
     text-align: center;
 }
+
 .valid {
     color: green;
 }
+
 ul {
     width: 30%;
     margin: auto;
